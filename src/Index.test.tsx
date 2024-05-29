@@ -57,35 +57,43 @@ describe('application tests', () => {
     expect(parent).toHaveAttribute('href', link);
   };
 
-  it('should render name: Adam Alston', () => {
+  it('should render name: Anagha Badhe', () => {
     const element = screen.getByTestId('name');
 
-    checkContent(element, /^Adam Alston$/, undefined, true);
+    checkContent(element, /^Anagha Badhe$/, undefined, true);
   });
 
-  it('should render title: Software Engineer', () => {
+  it('should render title: Student', () => {
     const element = screen.getByTestId('title');
 
-    checkContent(element, /^Software Engineer$/, undefined, true);
+    checkContent(element, /^Student$/, undefined, true);
   });
 
   it('should render creator', () => {
     const element = screen.getByTestId('creator');
 
-    checkContent(element, /^Adam Alston$/, 'https://www.adamalston.com/');
+    checkContent(
+      element,
+      /^Anagha$/,
+      'https://anagha012004.github.io/anaghawebsite.github.io/',
+    );
   });
 
   it('should render link to source code', () => {
     const element = screen.getByTestId('source');
 
-    checkContent(element, /^Source$/, 'https://github.com/adamalston/v2/');
+    checkContent(
+      element,
+      /^Source$/,
+      'https://github.com/anagha012004/Connect-Me',
+    );
   });
 
   it('should render GitHub button', () => {
     const parent = screen.getByTestId('button-GitHub');
     const child = screen.getByTestId('GitHub');
 
-    checkButton(parent, child, /^GitHub$/, 'https://github.com/adamalston/');
+    checkButton(parent, child, /^GitHub$/, 'https://github.com/anagha012004');
   });
 
   it('should render LinkedIn button', () => {
@@ -96,7 +104,7 @@ describe('application tests', () => {
       parent,
       child,
       /^LinkedIn$/,
-      'https://www.linkedin.com/in/adam-alston/',
+      'https://www.linkedin.com/in/anagha-badhe-98366325a/',
     );
   });
 
@@ -108,7 +116,7 @@ describe('application tests', () => {
       parent,
       child,
       /^Resume$/,
-      'https://drive.google.com/file/d/1VQ_Oeim_e92QEMi64ejGWY5Hf4RRxfeJ/view',
+      'https://drive.google.com/file/d/1G2OlyroAmSZQ1hVD7zKxDeSUTKO0uwdH/view?usp=sharing',
     );
   });
 
@@ -116,7 +124,7 @@ describe('application tests', () => {
     const parent = screen.getByTestId('button-Email');
     const child = screen.getByTestId('Email');
 
-    checkButton(parent, child, /^Email$/, 'mailto:aalston9@gmail.com');
+    checkButton(parent, child, /^Email$/, 'mailto:anaghabadhe3@gmail.com');
   });
 
   it('should toggle between the dark and light themes', () => {
@@ -145,7 +153,7 @@ describe('application tests', () => {
     const footer = screen.getByTestId('footer');
 
     expect(footer).toHaveTextContent(
-      /^Designed and built by Adam Alston \| Source$/,
+      /^Designed and built by Anagha Badhe \| Source$/,
     );
   });
 });
@@ -165,7 +173,7 @@ describe('app context tests', () => {
     // partial footer should now be visible
     const footer = screen.getByTestId('footer');
 
-    expect(footer).toHaveTextContent(/^Designed and built by Adam Alston$/);
+    expect(footer).toHaveTextContent(/^Designed and built by Anagha Badhe$/);
     expect(footer).not.toHaveTextContent(/Source/);
   });
 
